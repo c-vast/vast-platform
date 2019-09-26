@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--县、区域数据表映射文件-->
+<mapper namespace="com.jxit.dao.IAreaDao">
+    <resultMap id="AreaResultMap" type="com.jxit.entity.Area">
+        <id column="id" property="id" javaType="java.lang.Integer" jdbcType="INTEGER"></id>
+        <result column="code" property="code" jdbcType="VARCHAR" javaType="java.lang.String"></result>
+        <result column="name" property="name" jdbcType="VARCHAR" javaType="java.lang.String"></result>
+        <result column="citycode" property="cityCode" jdbcType="VARCHAR" javaType="java.lang.String"></result>
+    </resultMap>
+
+    <sql id="Area_Column_List">
+        Id,code,name,citycode
+    </sql>
+
+    <select id="selectByCode" parameterType="java.lang.String" resultMap="AreaResultMap">
+        select
+        <include refid="Area_Column_List"/>
+        from area
+        where code = #{code}
+    </select>
+
+    <select id="listCount" resultType="int">
+        select
+        count(*)
+        from
+        area
+    </select>
+    
+    <select id="selectAll" resultMap="AreaResultMap">
+        select
+        <include refid="Area_Column_List"></include>
+        from area
+    </select>
+    
+    <select id="pagingSelect" parameterType="java.util.Map" resultMap="AreaResultMap">
+        select
+        <include refid="Area_Column_List"></include>
+        from area
+        limit #{index},#{size}
+    </select>
+
+    <select id="likeByName" parameterType="java.lang.String" resultMap="AreaResultMap">
+        select
+        <include refid="Area_Column_List"></include>
+        from area
+        where name like "%"#{name}"%"
+    </select>
+
+    <select id="selectByCityCode" parameterType="java.lang.String" resultMap="AreaResultMap">
+        select
+        <include refid="Area_Column_List"></include>
+        from area
+        where citycode=#{cityCode}
+    </select>
+</mapper>
