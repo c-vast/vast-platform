@@ -13,7 +13,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  * @author 1157168277@qq.com
  */
 @SpringBootApplication
-@MapperScan("com.jxit.dao")
+@MapperScan("com.vast.dao")
 public class AddressApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
