@@ -1,7 +1,7 @@
 package com.vast.service;
 
 
-import com.vast.util.AjaxResponse;
+import com.vast.util.Result;
 
 /**
  * 省份对外业务接口
@@ -15,13 +15,13 @@ public interface IProvinceService {
      * @param code 省份代码
      * @return 省份信息
      */
-    AjaxResponse selectByCode(String code);
+    Result selectByCode(String code);
 
     /**
      * 查询所有省份信息不分页
      * @return 所有省份信息
      */
-    AjaxResponse selectAll();
+    Result selectAll();
 
     /**
      * 分页查询每页省份信息
@@ -29,12 +29,12 @@ public interface IProvinceService {
      * @param size 每页数量
      * @return  每页省份信息
      */
-    AjaxResponse pagingSelect(Integer index,Integer size);
+    Result pagingSelect(Integer index, Integer size);
 
     /**
      * 根据省份名称模糊查询省份信息
      * @param name 省份名称
      * @return 省份信息
      */
-    AjaxResponse likeByName(String name);
+    Result likeByName(String name);
 }

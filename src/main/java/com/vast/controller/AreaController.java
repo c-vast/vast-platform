@@ -1,7 +1,7 @@
 package com.vast.controller;
 
 import com.vast.service.IAreaService;
-import com.vast.util.AjaxResponse;
+import com.vast.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,7 +32,7 @@ public class AreaController {
      * @return 县、区域信息
      */
     @GetMapping("/area/{code}")
-    public AjaxResponse selectByCode(@PathVariable(name = "code") String code){
+    public Result selectByCode(@PathVariable(name = "code") String code){
         return areaService.selectByCode(code);
     }
 
@@ -42,7 +42,7 @@ public class AreaController {
      * @return 县、区域信息
      */
     @GetMapping("/area/all")
-    public AjaxResponse selectAll(){
+    public Result selectAll(){
         return areaService.selectAll();
     }
 
@@ -54,7 +54,7 @@ public class AreaController {
      * @return 县、区域信息
      */
     @GetMapping("/area")
-    public AjaxResponse pagingSelect(Integer index, Integer size){
+    public Result pagingSelect(Integer index, Integer size){
         return areaService.pagingSelect(index,size);
     }
 
@@ -65,7 +65,7 @@ public class AreaController {
      * @return 县、区域信息
      */
     @GetMapping("/area/like")
-    public AjaxResponse likeByName(String name){
+    public Result likeByName(String name){
         return areaService.likeByName(name);
     }
 
@@ -76,7 +76,7 @@ public class AreaController {
      * @return 县、区域信息
      */
     @GetMapping("/area/city")
-    public AjaxResponse selectByCityCode(String code){
+    public Result selectByCityCode(String code){
         return areaService.selectByCityCode(code);
     }
 }

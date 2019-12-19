@@ -1,7 +1,7 @@
 package com.vast.controller;
 
 import com.vast.service.ICityService;
-import com.vast.util.AjaxResponse;
+import com.vast.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,7 +31,7 @@ public class CityController {
      * @return 城市信息
      */
     @GetMapping("/city/{code}")
-    public AjaxResponse selectByCode(@PathVariable(name = "code") String code){
+    public Result selectByCode(@PathVariable(name = "code") String code){
         return cityService.selectByCode(code);
     }
 
@@ -41,7 +41,7 @@ public class CityController {
      * @return 城市信息
      */
     @GetMapping("/city/all")
-    public AjaxResponse selectAll(){
+    public Result selectAll(){
         return cityService.selectAll();
     }
 
@@ -53,7 +53,7 @@ public class CityController {
      * @return 城市信息
      */
     @GetMapping("/city")
-    public AjaxResponse pagingSelect(Integer index,Integer size){
+    public Result pagingSelect(Integer index, Integer size){
         return cityService.pagingSelect(index,size);
     }
 
@@ -64,7 +64,7 @@ public class CityController {
      * @return 城市信息
      */
     @GetMapping("/city/like")
-    public AjaxResponse likeByName(String name){
+    public Result likeByName(String name){
         return cityService.likeByName(name);
     }
 
@@ -75,7 +75,7 @@ public class CityController {
      * @return 城市信息
      */
     @GetMapping("/city/province")
-    public AjaxResponse selectByProvinceCode(String code){
+    public Result selectByProvinceCode(String code){
         return cityService.selectByProvinceCode(code);
     }
 }

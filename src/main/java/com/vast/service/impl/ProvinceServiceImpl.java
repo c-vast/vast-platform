@@ -4,7 +4,7 @@ package com.vast.service.impl;
 import com.vast.dao.IProvinceDao;
 import com.vast.entity.Province;
 import com.vast.service.IProvinceService;
-import com.vast.util.AjaxResponse;
+import com.vast.util.Result;
 import com.vast.util.ValidateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,38 +30,38 @@ public class ProvinceServiceImpl implements IProvinceService {
     private IProvinceDao provinceDao;
 
     @Override
-    public AjaxResponse selectByCode(String code) {
+    public Result selectByCode(String code) {
         if (ValidateUtil.isEmpty(code)){
-            return AjaxResponse.error("数据异常：省份代码不能为空");
+            return Result.error("数据异常：省份代码不能为空");
         }
         if (!ValidateUtil.isInteger(code)){
-            return AjaxResponse.error("数据异常：省份代码应该为纯数字");
+            return Result.error("数据异常：省份代码应该为纯数字");
         }
         Province result = provinceDao.selectByCode(code);
         if (result==null){
-            return AjaxResponse.error("数据异常：省份代码不存在");
+            return Result.error("数据异常：省份代码不存在");
         }
-        return AjaxResponse.success(result);
+        return Result.success(result);
     }
 
     @Override
-    public AjaxResponse selectAll() {
+    public Result selectAll() {
         List<Province> result = provinceDao.selectAll();
         int count = provinceDao.listCount();
         if (ValidateUtil.isEmpty(result)){
-            return AjaxResponse.error("数据异常：后台数据库查询无数据");
+            return Result.error("数据异常：后台数据库查询无数据");
         }
         if (count<1){
-            return AjaxResponse.exception("服务器异常：后台数据库查询异常");
+            return Result.exception("服务器异常：后台数据库查询异常");
         }
         Map<String,Object> results=new HashMap<>(2);
         results.put("result",result);
         results.put("count",count);
-        return AjaxResponse.success(results);
+        return Result.success(results);
     }
 
     @Override
-    public AjaxResponse pagingSelect(Integer index, Integer size) {
+    public Result pagingSelect(Integer index, Integer size) {
         if (index==null&&size==null){
             return selectAll();
         }
@@ -79,26 +79,26 @@ public class ProvinceServiceImpl implements IProvinceService {
         List<Province> result = provinceDao.pagingSelect(page);
         int count = provinceDao.listCount();
         if (ValidateUtil.isEmpty(result)){
-            return AjaxResponse.error("数据异常：后台数据库查询无数据");
+            return Result.error("数据异常：后台数据库查询无数据");
         }
         if (count<1){
-            return AjaxResponse.exception("服务器异常：后台数据库查询异常");
+            return Result.exception("服务器异常：后台数据库查询异常");
         }
         Map<String,Object> results=new HashMap<>(2);
         results.put("result",result);
         results.put("count",count);
-        return AjaxResponse.success(results);
+        return Result.success(results);
     }
 
     @Override
-    public AjaxResponse likeByName(String name) {
+    public Result likeByName(String name) {
         if (ValidateUtil.isEmpty(name)){
-            return AjaxResponse.error("数据异常：城市名称不能为空");
+            return Result.error("数据异常：城市名称不能为空");
         }
         List<Province> result = provinceDao.likeByName(name);
         if (ValidateUtil.isEmpty(result)){
-            return AjaxResponse.error("数据异常：数据库中与省份信息相似的数据不存在");
+            return Result.error("数据异常：数据库中与省份信息相似的数据不存在");
         }
-        return AjaxResponse.success(result);
+        return Result.success(result);
     }
 }

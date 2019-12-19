@@ -1,7 +1,7 @@
 package com.vast.controller;
 
 import com.vast.service.IProvinceService;
-import com.vast.util.AjaxResponse;
+import com.vast.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,7 +31,7 @@ public class ProvinceController {
      * @return 省份信息
      */
     @GetMapping("/province/{code}")
-    public AjaxResponse selectByCode(@PathVariable(name = "code") String code){
+    public Result selectByCode(@PathVariable(name = "code") String code){
         return provinceService.selectByCode(code);
     }
 
@@ -41,7 +41,7 @@ public class ProvinceController {
      * @return 省份信息
      */
     @GetMapping("/province/all")
-    public AjaxResponse selectAll(){
+    public Result selectAll(){
         return provinceService.selectAll();
     }
 
@@ -53,7 +53,7 @@ public class ProvinceController {
      * @return 省份信息
      */
     @GetMapping("/province")
-    public AjaxResponse pagingSelect(Integer index,Integer size){
+    public Result pagingSelect(Integer index, Integer size){
         return provinceService.pagingSelect(index, size);
     }
 
@@ -64,7 +64,7 @@ public class ProvinceController {
      * @return 省份信息
      */
     @GetMapping("/province/like")
-    public AjaxResponse likeByName(String name){
+    public Result likeByName(String name){
         return provinceService.likeByName(name);
     }
 }

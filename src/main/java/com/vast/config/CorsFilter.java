@@ -3,7 +3,8 @@ package com.vast.config;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
-import javax.servlet.http.HttpServletResponse;  
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -24,5 +25,5 @@ public class CorsFilter implements Filter {
         chain.doFilter(req, res);  
     }  
     public void init(FilterConfig filterConfig) {}  
-    public void destroy() {}  
+    public void destroy() {}
 }

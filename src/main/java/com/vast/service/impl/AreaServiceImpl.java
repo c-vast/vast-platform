@@ -3,7 +3,7 @@ package com.vast.service.impl;
 import com.vast.dao.IAreaDao;
 import com.vast.entity.Area;
 import com.vast.service.IAreaService;
-import com.vast.util.AjaxResponse;
+import com.vast.util.Result;
 import com.vast.util.ValidateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,38 +28,38 @@ public class AreaServiceImpl implements IAreaService {
     private IAreaDao areaDao;
 
     @Override
-    public AjaxResponse selectByCode(String code) {
+    public Result selectByCode(String code) {
         if (ValidateUtil.isEmpty(code)){
-            return AjaxResponse.error("数据异常：县、区域代码不能为空");
+            return Result.error("数据异常：县、区域代码不能为空");
         }
         if (!ValidateUtil.isInteger(code)){
-            return AjaxResponse.error("数据异常：县、区域代码应该为纯数字");
+            return Result.error("数据异常：县、区域代码应该为纯数字");
         }
         Area result = areaDao.selectByCode(code);
         if (result==null){
-            return AjaxResponse.error("数据异常：县、区域代码不存在");
+            return Result.error("数据异常：县、区域代码不存在");
         }
-        return AjaxResponse.success(result);
+        return Result.success(result);
     }
 
     @Override
-    public AjaxResponse selectAll() {
+    public Result selectAll() {
         List<Area> result = areaDao.selectAll();
         int count = areaDao.listCount();
         if (ValidateUtil.isEmpty(result)){
-            return AjaxResponse.error("数据异常：后台数据库查询无数据");
+            return Result.error("数据异常：后台数据库查询无数据");
         }
         if (count<1){
-            return AjaxResponse.exception("服务器异常：后台数据库查询异常");
+            return Result.exception("服务器异常：后台数据库查询异常");
         }
         Map<String,Object> results=new HashMap<>(2);
         results.put("result",result);
         results.put("count",count);
-        return AjaxResponse.success(results);
+        return Result.success(results);
     }
 
     @Override
-    public AjaxResponse pagingSelect(Integer index, Integer size) {
+    public Result pagingSelect(Integer index, Integer size) {
         if (index==null&&size==null){
             return selectAll();
         }
@@ -77,41 +77,41 @@ public class AreaServiceImpl implements IAreaService {
         List<Area> result = areaDao.pagingSelect(page);
         int count = areaDao.listCount();
         if (ValidateUtil.isEmpty(result)){
-            return AjaxResponse.error("数据异常：后台数据库查询无数据");
+            return Result.error("数据异常：后台数据库查询无数据");
         }
         if (count<1){
-            return AjaxResponse.exception("服务器异常：后台数据库查询异常");
+            return Result.exception("服务器异常：后台数据库查询异常");
         }
         Map<String,Object> results=new HashMap<>(2);
         results.put("result",result);
         results.put("count",count);
-        return AjaxResponse.success(results);
+        return Result.success(results);
     }
 
     @Override
-    public AjaxResponse likeByName(String name) {
+    public Result likeByName(String name) {
         if (ValidateUtil.isEmpty(name)){
-            return AjaxResponse.error("数据异常：县、区域名称不能为空");
+            return Result.error("数据异常：县、区域名称不能为空");
         }
         List<Area> result = areaDao.likeByName(name);
         if (ValidateUtil.isEmpty(result)){
-            return AjaxResponse.error("数据异常：数据库中与县、区域信息相似的数据不存在");
+            return Result.error("数据异常：数据库中与县、区域信息相似的数据不存在");
         }
-        return AjaxResponse.success(result);
+        return Result.success(result);
     }
 
     @Override
-    public AjaxResponse selectByCityCode(String cityCode) {
+    public Result selectByCityCode(String cityCode) {
         if (ValidateUtil.isEmpty(cityCode)){
-            return AjaxResponse.error("数据异常：城市代码不能为空");
+            return Result.error("数据异常：城市代码不能为空");
         }
         if (!ValidateUtil.isInteger(cityCode)){
-            return AjaxResponse.error("数据异常：城市代码应该为纯数字");
+            return Result.error("数据异常：城市代码应该为纯数字");
         }
         List<Area> result = areaDao.selectByCityCode(cityCode);
         if (ValidateUtil.isEmpty(result)){
-            return AjaxResponse.error("数据异常：数据库中所属城市的县、区域数据不存在");
+            return Result.error("数据异常：数据库中所属城市的县、区域数据不存在");
         }
-        return AjaxResponse.success(result);
+        return Result.success(result);
     }
 }
