@@ -28,7 +28,7 @@ import java.net.UnknownHostException;
  * 			<version>3.8</version>
  * 		</dependency>
  */
-public class SnowflakeIdWorker {
+public class SnowflakeIdUtil {
  
     // ==============================Fields===========================================
     /** 开始时间截 (2015-01-01) */
@@ -73,10 +73,10 @@ public class SnowflakeIdWorker {
     /** 上次生成ID的时间截 */
     private long lastTimestamp = -1L;
  
-    private static SnowflakeIdWorker idWorker;
+    private static SnowflakeIdUtil idWorker;
  
     static {
-        idWorker = new SnowflakeIdWorker(getWorkId(),getDataCenterId());
+        idWorker = new SnowflakeIdUtil(getWorkId(),getDataCenterId());
     }
  
     //==============================Constructors=====================================
@@ -85,7 +85,7 @@ public class SnowflakeIdWorker {
      * @param workerId 工作ID (0~31)
      * @param dataCenterId 数据中心ID (0~31)
      */
-    public SnowflakeIdWorker(long workerId, long dataCenterId) {
+    public SnowflakeIdUtil(long workerId, long dataCenterId) {
         if (workerId > maxWorkerId || workerId < 0) {
             throw new IllegalArgumentException(String.format("workerId can't be greater than %d or less than 0", maxWorkerId));
         }
@@ -188,17 +188,5 @@ public class SnowflakeIdWorker {
     public static Long generateId(){
         long id = idWorker.nextId();
         return id;
-    }
- 
-    //==============================Test=============================================
-    /** 测试 */
-    public static void main(String[] args) {
-        System.out.println(System.currentTimeMillis());
-        long startTime = System.nanoTime();
-        for (int i = 0; i < 50000; i++) {
-            long id = SnowflakeIdWorker.generateId();
-            System.out.println(id);
-        }
-        System.out.println((System.nanoTime()-startTime)/1000000+"ms");
     }
 }
