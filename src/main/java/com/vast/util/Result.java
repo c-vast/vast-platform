@@ -6,7 +6,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- *  Ajax响应Result Json帮助类
+ *  API响应Result Json帮助类
  * @since 2019年9月21日20点01分
  * @version 1.0
  * @author 1157168277@qq.com

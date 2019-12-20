@@ -17,16 +17,13 @@ public class ErrorPageConfig {
          */
     @Bean
     public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer(){
-        return new WebServerFactoryCustomizer<ConfigurableWebServerFactory>() {
-            @Override
-            public void customize(ConfigurableWebServerFactory factory) {
-                ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/404.html");
-                ErrorPage error500Page = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/500.html");
-                Set<ErrorPage> set=new HashSet<>();
-                set.add(error404Page);
-                set.add(error500Page);
-                factory.setErrorPages(set);
-            }
+        return (ConfigurableWebServerFactory factory)->{
+            ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/404.html");
+            ErrorPage error500Page = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/500.html");
+            Set<ErrorPage> set=new HashSet<>();
+            set.add(error404Page);
+            set.add(error500Page);
+            factory.setErrorPages(set);
         };
     }
 }
