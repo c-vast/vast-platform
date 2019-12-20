@@ -8,7 +8,6 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.paths.RelativePathProvider;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
@@ -23,14 +22,7 @@ public class Swagger2Config {
                 .paths(PathSelectors.any())
                 .build()
                 // 测试API时的主机URL
-                .host("http://140.246.94.21:8897")
-                // API前缀
-                .pathProvider(new RelativePathProvider(null) {
-                    @Override
-                    public String getApplicationBasePath() {
-                        return "/api";
-                    }
-                })
+                .host("140.246.94.21:8897")
                 .apiInfo(apiInfo());
     }
 
