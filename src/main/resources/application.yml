@@ -1,12 +1,12 @@
 server:
-  port: 8888
+  port: 8897
 spring:
   datasource:
-    url:
+    url: jdbc:mysql://140.246.94.21:3306/novel?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&aserverTimezone=UTC
     username:
     password:
     driver-class-name: com.mysql.cj.jdbc.Driver
 mybatis:
-  type-aliases-package: com.jxit.entity
+  type-aliases-package: club.cvast.domain
   mapper-locations: classpath:mapper/*.xml
   config-location: classpath:config/mybatis-config.xml

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <!--县、区域数据表映射文件-->
-<mapper namespace="com.vast.dao.IAreaDao">
-    <resultMap id="AreaResultMap" type="com.vast.entity.Area">
+<mapper namespace="club.cvast.dao.IAreaDao">
+    <resultMap id="AreaResultMap" type="club.cvast.domain.Area">
         <id column="id" property="id" javaType="java.lang.Integer" jdbcType="INTEGER"></id>
         <result column="code" property="code" jdbcType="VARCHAR" javaType="java.lang.String"></result>
         <result column="name" property="name" jdbcType="VARCHAR" javaType="java.lang.String"></result>
