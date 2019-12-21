@@ -13,57 +13,44 @@ import java.io.Serializable;
  */
 @Data
 public class Result implements Serializable {
-    /**
-     * 服务端状态码
-     */
-    private int status;
-
-    /**
-     * 服务端响应消息
-     */
+    private Integer status;
     private String message;
-
-    /**
-     * 服务端响应结果集
-     */
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Object results;
+    public Result(){}
 
-    public Result(int status, String message){
-        this.status=status;
-        this.message=message;
+    public void setResultCode(ResultCode code) {
+        this.status = code.status();
+        this.message = code.message();
+    }
+    public Result(Integer status, String message) {
+        this.status = status;
+        this.message = message;
     }
 
-    public Result(){
+    public static Result success() {
+        Result result = new Result();
+        result.setResultCode(ResultCode.SUCCESS);
+        return result;
     }
 
-    public Result(int status, String message, Object results){
-        this.status=status;
-        this.message=message;
-        this.results=results;
+    public static Result success(Object results) {
+        Result result = new Result();
+        result.setResultCode(ResultCode.SUCCESS);
+        result.setResults(results);
+        return result;
     }
 
-    public static Result success(){
-        return new Result(200,"success");
+    public static Result failure(ResultCode resultCode) {
+        Result result = new Result();
+        result.setResultCode(resultCode);
+        return result;
     }
 
-    public static Result success(Object results){
-        return new Result(200,"success",results);
-    }
-
-    public static Result error(String message){
-        return new Result(400,message);
-    }
-
-    public static Result exception(String message){
-        return new Result(500,message);
-    }
-
-    public static Result notLogin(){
-        return new Result(300,"未登录");
-    }
-
-    public static Result notLeave(){
-        return new Result(100,"权限不足");
+    public static Result failure(ResultCode resultCode, Object results) {
+        Result result = new Result();
+        result.setResultCode(resultCode);
+        result.setResults(results);
+        return result;
     }
 }
