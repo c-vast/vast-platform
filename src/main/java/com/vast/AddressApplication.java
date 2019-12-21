@@ -7,7 +7,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /**
- *  address项目启动类
+ *  项目启动类
  * @since 2019年9月21日20点01分
  * @version 1.0
  * @author 1157168277@qq.com
