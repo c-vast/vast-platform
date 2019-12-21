@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="club.cvast.dao.IVisitorDao" >
+  <resultMap id="BaseResultMap" type="club.cvast.domain.Visitor" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="visitor_Ip" property="visitorIp" jdbcType="VARCHAR" />
+    <result column="request_Url" property="requestUrl" jdbcType="VARCHAR" />
+    <result column="create_Date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_Date" property="updateDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, visitor_Ip, request_Url, create_Date, update_Date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from visitor
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from visitor
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="club.cvast.domain.Visitor" >
+    insert into visitor (id, visitor_Ip, request_Url, 
+      create_Date, update_Date)
+    values (#{id,jdbcType=BIGINT}, #{visitorIp,jdbcType=VARCHAR}, #{requestUrl,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="club.cvast.domain.Visitor" >
+    insert into visitor
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="visitorIp != null" >
+        visitor_Ip,
+      </if>
+      <if test="requestUrl != null" >
+        request_Url,
+      </if>
+      <if test="createDate != null" >
+        create_Date,
+      </if>
+      <if test="updateDate != null" >
+        update_Date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="visitorIp != null" >
+        #{visitorIp,jdbcType=VARCHAR},
+      </if>
+      <if test="requestUrl != null" >
+        #{requestUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="club.cvast.domain.Visitor" >
+    update visitor
+    <set >
+      <if test="visitorIp != null" >
+        visitor_Ip = #{visitorIp,jdbcType=VARCHAR},
+      </if>
+      <if test="requestUrl != null" >
+        request_Url = #{requestUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_Date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_Date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="club.cvast.domain.Visitor" >
+    update visitor
+    set visitor_Ip = #{visitorIp,jdbcType=VARCHAR},
+      request_Url = #{requestUrl,jdbcType=VARCHAR},
+      create_Date = #{createDate,jdbcType=TIMESTAMP},
+      update_Date = #{updateDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from visitor
+    where id = #{id}
+  </select>
+
+  <select id="pagingSelect" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from visitor
+    limit #{index},#{size}
+  </select>
+
+  <select id="count" resultType="int">
+        select
+        count (*)
+        from
+        visitor
+    </select>
+</mapper>

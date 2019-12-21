@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="club.cvast.dao.IOperationDao" >
+  <resultMap id="BaseResultMap" type="club.cvast.domain.Operation" >
+    <id column="btn_id" property="btnId" jdbcType="INTEGER" />
+    <result column="btn_code" property="btnCode" jdbcType="VARCHAR" />
+    <result column="btn_name" property="btnName" jdbcType="VARCHAR" />
+    <result column="btn_title" property="btnTitle" jdbcType="VARCHAR" />
+    <result column="menu_id" property="menuId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    btn_id, btn_code, btn_name, btn_title, menu_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from operation
+    where btn_id = #{btnId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from operation
+    where btn_id = #{btnId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="club.cvast.domain.Operation" >
+    insert into operation (btn_id, btn_code, btn_name, 
+      btn_title, menu_id)
+    values (#{btnId,jdbcType=INTEGER}, #{btnCode,jdbcType=VARCHAR}, #{btnName,jdbcType=VARCHAR}, 
+      #{btnTitle,jdbcType=VARCHAR}, #{menuId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="club.cvast.domain.Operation" >
+    insert into operation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="btnId != null" >
+        btn_id,
+      </if>
+      <if test="btnCode != null" >
+        btn_code,
+      </if>
+      <if test="btnName != null" >
+        btn_name,
+      </if>
+      <if test="btnTitle != null" >
+        btn_title,
+      </if>
+      <if test="menuId != null" >
+        menu_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="btnId != null" >
+        #{btnId,jdbcType=INTEGER},
+      </if>
+      <if test="btnCode != null" >
+        #{btnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="btnName != null" >
+        #{btnName,jdbcType=VARCHAR},
+      </if>
+      <if test="btnTitle != null" >
+        #{btnTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="menuId != null" >
+        #{menuId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="club.cvast.domain.Operation" >
+    update operation
+    <set >
+      <if test="btnCode != null" >
+        btn_code = #{btnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="btnName != null" >
+        btn_name = #{btnName,jdbcType=VARCHAR},
+      </if>
+      <if test="btnTitle != null" >
+        btn_title = #{btnTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="menuId != null" >
+        menu_id = #{menuId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where btn_id = #{btnId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="club.cvast.domain.Operation" >
+    update operation
+    set btn_code = #{btnCode,jdbcType=VARCHAR},
+      btn_name = #{btnName,jdbcType=VARCHAR},
+      btn_title = #{btnTitle,jdbcType=VARCHAR},
+      menu_id = #{menuId,jdbcType=INTEGER}
+    where btn_id = #{btnId,jdbcType=INTEGER}
+  </update>
+</mapper>

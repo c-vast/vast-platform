@@ -1,5 +1,6 @@
 package club.cvast.domain;
 
+
 import java.io.Serializable;
 import java.util.Date;
 
