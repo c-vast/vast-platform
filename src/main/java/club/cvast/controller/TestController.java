@@ -18,11 +18,7 @@ public class TestController extends BaseController {
 
 
     @PostMapping("/test01")
-    public Result test(@Valid Visitor visitor, BindingResult bindingResult){
-        validData(bindingResult);
-        boolean insert = visitorService.insert(visitor);
-        if (!insert)
-            return Result.failure(ResultCode.INSTER_ERROR);
+    public Result test(int a){
         return Result.success();
     }
 

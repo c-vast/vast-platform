@@ -28,7 +28,7 @@ public class Swagger2Config {
 
     public ApiInfo apiInfo() {
         final Contact contact = new Contact(
-                "CVast", "http://www.cvast.club:7070", "1157168277@qq.com");
+                "CVast", "http://www.cvast.club", "1157168277@qq.com");
         return new ApiInfoBuilder()
                 // API文档标题
                 .title("Vast平台接口文档")

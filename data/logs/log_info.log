@@ -1,0 +1,39 @@
+2019-12-26 21:50:29.135 [main] INFO  club.cvast.VastPlatfromApplication - Starting VastPlatfromApplication on DESKTOP-3MNAFK4 with PID 13224 (E:\Work\idea\vast-platform\target\classes started by heche in E:\Work\idea\vast-platform)
+2019-12-26 21:50:29.138 [main] INFO  club.cvast.VastPlatfromApplication - No active profile set, falling back to default profiles: default
+2019-12-26 21:50:30.185 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$85f798ce] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-26 21:50:30.378 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2019-12-26 21:50:30.390 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-12-26 21:50:30.397 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-26 21:50:30.397 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-12-26 21:50:30.495 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-26 21:50:30.495 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1227 ms
+2019-12-26 21:50:31.131 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-12-26 21:50:31.226 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-26 21:50:31.372 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2019-12-26 21:50:31.385 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-12-26 21:50:31.410 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2019-12-26 21:50:31.540 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-12-26 21:50:31.558 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2019-12-26 21:50:31.561 [main] INFO  club.cvast.VastPlatfromApplication - Started VastPlatfromApplication in 2.9 seconds (JVM running for 3.596)
+2019-12-26 21:52:13.238 [main] INFO  club.cvast.VastPlatfromApplication - Starting VastPlatfromApplication on DESKTOP-3MNAFK4 with PID 10456 (E:\Work\idea\vast-platform\target\classes started by heche in E:\Work\idea\vast-platform)
+2019-12-26 21:52:13.251 [main] INFO  club.cvast.VastPlatfromApplication - No active profile set, falling back to default profiles: default
+2019-12-26 21:52:14.235 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$97c2fecb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-26 21:52:14.432 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2019-12-26 21:52:14.443 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-12-26 21:52:14.450 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-26 21:52:14.450 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-12-26 21:52:14.544 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-26 21:52:14.544 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1252 ms
+2019-12-26 21:52:15.200 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-12-26 21:52:15.296 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-26 21:52:15.434 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2019-12-26 21:52:15.447 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-12-26 21:52:15.470 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2019-12-26 21:52:15.593 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-12-26 21:52:15.611 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2019-12-26 21:52:15.614 [main] INFO  club.cvast.VastPlatfromApplication - Started VastPlatfromApplication in 2.791 seconds (JVM running for 3.481)
+2019-12-26 21:53:39.481 [http-nio-80-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-26 21:53:39.482 [http-nio-80-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-12-26 21:53:39.491 [http-nio-80-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+2019-12-26 21:53:39.516 [http-nio-80-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-12-26 21:53:39.615 [http-nio-80-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
