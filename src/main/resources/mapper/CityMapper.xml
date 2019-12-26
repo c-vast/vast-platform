@@ -79,45 +79,4 @@
       province_code = #{provinceCode,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-
-  <select id="selectByCode" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List"/>
-    from city
-    where code = #{code}
-  </select>
-
-  <select id="listCount" resultType="int">
-        select
-        count(*)
-        from
-        city
-    </select>
-
-  <select id="selectAll" resultMap="CityResultMap">
-    select
-    <include refid="Base_Column_List"></include>
-    from city
-  </select>
-
-  <select id="pagingSelect" parameterType="java.util.Map" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List"></include>
-    from city
-    limit #{index},#{size}
-  </select>
-
-  <select id="likeByName" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List"></include>
-    from city
-    where name like "%"#{name}"%"
-  </select>
-
-  <select id="selectByProvinceCode" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List"></include>
-    from city
-    where provincecode=#{provinceCode}
-  </select>
 </mapper>

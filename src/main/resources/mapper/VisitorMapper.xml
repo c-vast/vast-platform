@@ -90,25 +90,4 @@
       update_Date = #{updateDate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
-
-  <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List"/>
-    from visitor
-    where id = #{id}
-  </select>
-
-  <select id="pagingSelect" parameterType="java.util.Map" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List"></include>
-    from visitor
-    limit #{index},#{size}
-  </select>
-
-  <select id="count" resultType="int">
-        select
-        count (*)
-        from
-        visitor
-    </select>
 </mapper>

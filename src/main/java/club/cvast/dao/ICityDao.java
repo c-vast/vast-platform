@@ -14,14 +14,6 @@ import java.util.Map;
  */
 @Mapper
 public interface ICityDao {
-    City selectByCode(String code);
-    List<City> selectAll();
-    List<City> pagingSelect(Map<String,Integer> map);
-    List<City> likeByName(String name);
-
-    List<City> selectByProvinceCode(String provinceCode);
-
-    int listCount();
     int deleteByPrimaryKey(Integer id);
 
     int insert(City record);

@@ -22,20 +22,20 @@ public class Swagger2Config {
                 .paths(PathSelectors.any())
                 .build()
                 // 测试API时的主机URL
-                .host("140.246.94.21:8897")
+                .host("localhost:80")
                 .apiInfo(apiInfo());
     }
 
     public ApiInfo apiInfo() {
         final Contact contact = new Contact(
-                "CVast", "http://140.246.81.141:7070", "1157168277@qq.com");
+                "CVast", "http://www.cvast.club:7070", "1157168277@qq.com");
         return new ApiInfoBuilder()
                 // API文档标题
                 .title("Vast平台接口文档")
                 // API文档描述
-                .description("地址代码查询API")
+                .description("Vast平台接口文档")
                 // API文档版本
-                .version("1.0.0.Dev")
+                .version("1.0.2.Dev")
                 // API负责人的联系信息
                 .contact(contact)
                 .build();

@@ -12,9 +12,10 @@ import java.util.Set;
 
 @Configuration
 public class ErrorPageConfig {
-    /*
-        错误页配置
-         */
+    /**
+     * 错误页配置
+     * @return
+     */
     @Bean
     public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer(){
         return (ConfigurableWebServerFactory factory)->{

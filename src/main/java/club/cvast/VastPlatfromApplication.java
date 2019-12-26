@@ -21,11 +21,11 @@ public class VastPlatfromApplication extends SpringBootServletInitializer {
 		SpringApplication.run(VastPlatfromApplication.class, args);
 	}
 	// 用于构建war文件并进行部署
-	@Override
-	protected SpringApplicationBuilder configure(
-			SpringApplicationBuilder builder) {
-		return builder.sources(this.getClass());
-	}
+//	@Override
+//	protected SpringApplicationBuilder configure(
+//			SpringApplicationBuilder builder) {
+//		return builder.sources(this.getClass());
+//	}
 
 
 }

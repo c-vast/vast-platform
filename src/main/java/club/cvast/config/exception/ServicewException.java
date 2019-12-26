@@ -7,15 +7,15 @@ package club.cvast.config.exception;
  * @since 2019年9月23日17点12分
  * @version v1.0
  */
-public class CustomException extends RuntimeException {
+public class ServicewException extends RuntimeException {
 
     private int status;
 
-    public CustomException() {
+    public ServicewException() {
         super();
     }
 
-    public CustomException(int status, String message) {
+    public ServicewException(int status, String message) {
         super(message);
         this.setStatus(status);
     }

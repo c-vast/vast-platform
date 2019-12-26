@@ -1,8 +1,10 @@
 package club.cvast.config.filter;
 
+import club.cvast.util.DateTimeUtil;
 import club.cvast.util.IpUtil;
 import club.cvast.domain.Visitor;
 import club.cvast.service.IVisitorService;
+import club.cvast.util.SnowflakeIdUtil;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -42,6 +44,9 @@ public class CorsFilter implements Filter {
      */
     public void SaveVisitorInfo(HttpServletRequest request){
         Visitor visitor=new Visitor();
+        visitor.setId(SnowflakeIdUtil.generateId());
+        visitor.setCreateDate(DateTimeUtil.nowDate());
+        visitor.setUpdateDate(DateTimeUtil.nowDate());
         visitor.setVisitorIp(IpUtil.getIpAddress(request));
         visitor.setRequestUrl(request.getRequestURI());
         visitorService.insert(visitor);

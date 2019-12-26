@@ -69,37 +69,4 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="selectByCode" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List"/>
-    from province
-    where code = #{code}
-  </select>
-
-  <select id="listCount" resultType="int">
-        select
-        count(*)
-        from
-        province
-    </select>
-
-  <select id="selectAll" resultMap="ProvinceResultMap">
-    select
-    <include refid="Base_Column_List"></include>
-    from province
-  </select>
-
-  <select id="pagingSelect" parameterType="java.util.Map" resultMap="BaseResultMap">
-    select
-    <include refid="Province_Column_List"></include>
-    from province
-    limit #{index},#{size}
-  </select>
-
-  <select id="likeByName" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List"></include>
-    from province
-    where name like "%"#{name}"%"
-  </select>
 </mapper>

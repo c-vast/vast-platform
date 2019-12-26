@@ -1,6 +1,7 @@
 package club.cvast.service;
 
-import club.cvast.util.Result;
+
+import club.cvast.service.base.IBaseService;
 
 /**
  * 城市对外业务接口
@@ -8,16 +9,6 @@ import club.cvast.util.Result;
  * @version 1.0
  * @author 1157168277@qq.com
  */
-public interface ICityService {
-    Result selectByCode(String code);
-    Result selectAll();
-    Result pagingSelect(Integer index, Integer size);
-    Result likeByName(String name);
+public interface ICityService<T> extends IBaseService<T> {
 
-    /**
-     * 根据省份代码查询所属的所有城市信息
-     * @param provinceCode 省份代码
-     * @return 城市信息
-     */
-    Result selectByProvinceCode(String provinceCode);
 }

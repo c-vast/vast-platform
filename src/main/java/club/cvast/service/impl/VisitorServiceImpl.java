@@ -1,58 +1,45 @@
 package club.cvast.service.impl;
 
-import club.cvast.dao.IVisitorDao;
+import club.cvast.config.exception.ServicewException;
 import club.cvast.domain.Visitor;
 import club.cvast.service.IVisitorService;
-import org.springframework.beans.factory.annotation.Autowired;
+import club.cvast.service.base.BaseServiceImpl;
+import club.cvast.util.Paging;
+import club.cvast.util.PagingUtil;
+import club.cvast.util.ResultCode;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 @Service
-public class VisitorServiceImpl implements IVisitorService {
-
-    @Autowired
-    private IVisitorDao visitorDao;
-
+public class VisitorServiceImpl extends BaseServiceImpl<Visitor> implements IVisitorService<Visitor> {
     @Override
-    public Visitor selectById(Long id) {
-        if (id==null||id==0){
-            return null;
+    public boolean insert(Visitor record) {
+        if (record==null){
+            throw new ServicewException(ResultCode.EXCEPION.status(),ResultCode.EXCEPION.message());
         }
-        return visitorDao.selectById(id);
+        int insert = visitorDao.insert(record);
+        return insert>0;
     }
 
     @Override
-    public List<Visitor> pagingSelect(Integer index, Integer size) {
-        if (index==null&&size==null){
-            return null;
-        }
-        if (index==null||index<1){
-            index=1;
-        }
-        if (size==null||size<1){
-            size=10;
-        }
-        Map<String,Integer> page=new HashMap<>(2);
-        //MySQl limit分页公式
-        index=(index-1)*size;
-        page.put("index",index);
-        page.put("size",size);
-        return visitorDao.pagingSelect(page);
+    public Visitor selectById(String id){
+        Visitor visitor = visitorDao.selectByPrimaryKey(Long.parseLong(id));
+        return visitor;
     }
 
     @Override
-    public void insert(Visitor visitor) {
-        if (visitor==null){
-            return;
-        }
-        visitorDao.insert(visitor);
+    public Paging<Visitor> pagingSelect(PagingUtil<Visitor> param) {
+        return null;
+    }
+
+
+    @Override
+    public boolean updateByPrimaryKey(Visitor record){
+        return false;
     }
 
     @Override
-    public int count() {
-        return visitorDao.count();
+    public boolean deleteByPrimaryKey(String id){
+        return false;
     }
+
 }

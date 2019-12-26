@@ -14,12 +14,6 @@ import java.util.Map;
  */
 @Mapper
 public interface IAreaDao {
-    Area selectByCode(String code);
-    List<Area> selectAll();
-    List<Area> pagingSelect(Map<String,Integer> map);
-    List<Area> likeByName(String name);
-    List<Area> selectByCityCode(String cityCode);
-    int listCount();
     int deleteByPrimaryKey(Integer id);
 
     int insert(Area record);

@@ -8,9 +8,6 @@ import java.util.Map;
 
 @Mapper
 public interface IVisitorDao {
-    List<Visitor> pagingSelect(Map<String,Integer> map);
-    Visitor selectById(Long id);
-    int count();
     int deleteByPrimaryKey(Long id);
 
     int insert(Visitor record);
@@ -22,4 +19,8 @@ public interface IVisitorDao {
     int updateByPrimaryKeySelective(Visitor record);
 
     int updateByPrimaryKey(Visitor record);
+
+    List<Visitor> pagingSelect(Map param);
+
+    Long quantity(Map param);
 }

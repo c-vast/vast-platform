@@ -2,6 +2,7 @@ package club.cvast.util;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
+import org.omg.PortableInterceptor.INACTIVE;
 
 import java.io.Serializable;
 
@@ -27,6 +28,10 @@ public class Result implements Serializable {
         this.status = status;
         this.message = message;
     }
+    public Result(ResultCode resultCode) {
+        this.status = resultCode.status();
+        this.message = resultCode.message();
+    }
 
     public static Result success() {
         Result result = new Result();
@@ -44,6 +49,12 @@ public class Result implements Serializable {
     public static Result failure(ResultCode resultCode) {
         Result result = new Result();
         result.setResultCode(resultCode);
+        return result;
+    }
+    public static Result failure(Integer status, String message) {
+        Result result = new Result();
+        result.setStatus(status);
+        result.setMessage(message);
         return result;
     }
 
